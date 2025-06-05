@@ -103,7 +103,7 @@ function SetDisplay(bool, typeName, bg, chars)
 end
 
 function start(switch)
-    characters, perms = lib.callback.await("ND_Characters:fetchCharacters")
+    characters, perms, players = lib.callback.await("ND_Characters:fetchCharacters")
     if switch then
         local ped = PlayerPedId()
         SwitchOutPlayer(ped, 0, 1)
@@ -117,6 +117,10 @@ function start(switch)
     SendNUIMessage({
         type = "refresh",
         characters = json.encode(characters)
+    })
+    SendNUIMessage({
+        type = "playersOnline",
+        players = json.encode(players)
     })
     SendNUIMessage({
         type = "logo",
@@ -203,10 +207,16 @@ RegisterNUICallback("newCharacter", function(data)
             return lib.print.warn("creating character unsuccessful")
         end
         characters[player.id] = player
+        local _, _, plys = lib.callback.await("ND_Characters:fetchCharacters")
+        players = plys or players
         SendNUIMessage({
             type = "refresh",
             characters = json.encode(characters),
             characterAmount = ("%d/%d"):format(tablelength(characters), config.configuration.characterLimit)
+        })
+        SendNUIMessage({
+            type = "playersOnline",
+            players = json.encode(players)
         })
     end, {
         firstName = data.firstName,
@@ -225,10 +235,16 @@ RegisterNUICallback("editCharacter", function(data)
             return lib.print.warn("editing character unsuccessful")
         end
         characters[player.id] = player
+        local _, _, plys = lib.callback.await("ND_Characters:fetchCharacters")
+        players = plys or players
         SendNUIMessage({
             type = "refresh",
             characters = json.encode(characters),
             characterAmount = ("%d/%d"):format(tablelength(characters), config.configuration.characterLimit)
+        })
+        SendNUIMessage({
+            type = "playersOnline",
+            players = json.encode(players)
         })
     end, {
         id = data.id,
@@ -246,10 +262,16 @@ RegisterNUICallback("delCharacter", function(data)
     lib.callback("ND_Characters:delete", false, function(success)
         if not success then return end
         characters[data.character] = nil
+        local _, _, plys = lib.callback.await("ND_Characters:fetchCharacters")
+        players = plys or players
         SendNUIMessage({
             type = "refresh",
             characters = json.encode(characters),
             characterAmount = ("%d/%d"):format(tablelength(characters), config.configuration.characterLimit)
+        })
+        SendNUIMessage({
+            type = "playersOnline",
+            players = json.encode(players)
         })
     end, data.character)
 end)

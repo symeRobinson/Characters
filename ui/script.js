@@ -223,6 +223,15 @@ window.addEventListener("message", function(event) {
         }
     }
 
+    if (item.type === "playersOnline") {
+        const players = JSON.parse(item.players || '[]');
+        $("#onlineCount").text(players.length);
+        $("#playerList").empty();
+        players.forEach(p => {
+            $("#playerList").append(`<li>${p.name} (#${p.id})</li>`);
+        });
+    }
+
     if (item.type === "logo" && item.logo) {
         $("#logo").attr("src", `../images/${item.logo}`);
     }
