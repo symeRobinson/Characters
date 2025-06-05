@@ -159,7 +159,12 @@ lib.callback.register("ND_Characters:fetchCharacters", function(source)
         end
     end
 
-    return characters, perms
+    local players = {}
+    for _, id in ipairs(GetPlayers()) do
+        players[#players+1] = { id = tonumber(id), name = GetPlayerName(id) }
+    end
+
+    return characters, perms, players
 end)
 
 RegisterNetEvent("ND_Characters:select", function(id)
