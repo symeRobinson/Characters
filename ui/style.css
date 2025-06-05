@@ -1,5 +1,6 @@
 body {
     display: none;
+    font-family: 'Poppins', sans-serif;
     background-size: 105%;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -11,11 +12,12 @@ body {
 
 /* Main page */
 #overlay {
-    top: 0px;
-    left: 0px;
+    top: 0;
+    left: 0;
     height: 100vh;
     width: 30vw;
-    background-color: rgba(2, 2, 2, 0.911);
+    background: rgba(8, 8, 8, 0.92);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
     position: fixed;
 }
 
@@ -80,8 +82,8 @@ body {
     margin-bottom: 0.8vh;
     height: 4.5vh;
     width: 12vw;
-    background: rgb(95,141,254);
-    background-image: linear-gradient(90deg, rgba(95,141,254,1) 0%, rgba(142,104,219,1) 100%);
+    background: rgb(92, 59, 163);
+    background-image: linear-gradient(90deg, rgba(92,59,163,1) 0%, rgba(51,32,109,1) 100%);
     border-radius: 5vw;
     transition: 0.3s;
 }
@@ -91,8 +93,8 @@ body {
     margin-bottom: 5vh;
     height: 4.5vh;
     width: 10vw;
-    background: rgb(255,110,100);
-    background: linear-gradient(90deg, rgb(255, 100, 208) 0%, rgb(255, 60, 109) 100%);
+    background: rgb(191, 45, 65);
+    background: linear-gradient(90deg, rgb(191, 45, 65) 0%, rgb(158, 26, 55) 100%);
     border-radius: 5vw;
     transition: 0.3s;
 }
@@ -103,7 +105,7 @@ body {
     margin-left: 5.5vw;
     height: 3vh;
     width: 10vw;
-    background-color: rgb(17, 113, 238);
+    background-color: rgba(50, 50, 60, 0.9);
     border: none;
     border-radius: 0.5vh;
     transition: 0.3s;
@@ -115,7 +117,7 @@ body {
     margin-left: 0.2vw;
     height: 3vh;
     width: 4vw;
-    background-color: rgb(128, 128, 128);
+    background-color: rgba(80, 80, 90, 0.9);
     border: none;
     border-radius: 0.5vh;
     transition: 0.3s;
@@ -125,7 +127,7 @@ body {
     margin-left: 0.2vw;
     height: 3vh;
     width: 4vw;
-    background-color: rgb(236, 19, 19);
+    background-color: rgb(200, 40, 40);
     border: none;
     border-radius: 0.5vh;
     transition: 0.3s;
@@ -146,7 +148,7 @@ body {
     height: 60%;
     width: 50vw;
     margin: auto 0 auto 40vw;
-    background-color: rgba(2, 2, 2, 0.911);
+    background-color: rgba(12, 12, 12, 0.94);
     border-radius: 3vh;
 }
 
@@ -160,8 +162,7 @@ body {
 }
 
 #characterCreatorTopTextLine {
-    background: rgb(255, 255, 255);
-    background: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, rgba(255,255,255,1) 15%, rgba(255,255,255,1) 85%, rgba(0, 0, 0, 0.014) 100%);
+    background: linear-gradient(90deg, rgba(92,59,163,0) 0%, rgba(92,59,163,1) 50%, rgba(92,59,163,0) 100%);
     height: 0.1vh;
     width: 95%;
     border: none;
@@ -204,12 +205,12 @@ body {
     margin-left: 33.7vw;
     margin-bottom: 2vh;
     width: 8vw;
-    background-color: rgb(17, 113, 238);
+    background-color: rgb(92, 59, 163);
 }
 
 .characterResetButton {
     width: 4vw;
-    background-color: rgb(231, 50, 50);
+    background-color: rgb(200, 40, 40);
 }
 
 .characterSubmitButton, .characterResetButton, .confirmationScreenConfirm, .confirmationScreenCancel, .spawnButtons {
@@ -228,7 +229,7 @@ body {
     width: 30vw;
     margin-top: 20vh;
     margin-left: 45vw;
-    background-color: rgba(2, 2, 2, 0.911);
+    background-color: rgba(12, 12, 12, 0.94);
     border-radius: 3vh;
 }
 
@@ -237,19 +238,19 @@ body {
     margin-left: 19%;
     margin-right: 5%;
     width: 8vw;
-    background-color: rgb(17, 113, 238);
+    background-color: rgb(92, 59, 163);
 }
 
 .confirmationScreenCancel {
     width: 8vw;
-    background-color: rgb(231, 50, 50);
+    background-color: rgb(200, 40, 40);
 }
 
 .spawnMenu {
     height: 39%;
     width: 40vw;
     margin: auto 0 auto 40vw;
-    background-color: rgba(2, 2, 2, 0.911);
+    background-color: rgba(12, 12, 12, 0.94);
     border-radius: 3vh;
 }
 
@@ -265,7 +266,7 @@ body {
     text-align: center;
     width: 95%;
     height: 4vh;
-    background-color: rgb(17, 113, 238);
+    background-color: rgb(92, 59, 163);
 }
 
 .text {
